@@ -12,6 +12,11 @@ const render = function () {
     userArray = [];
     
     let storageUsers = JSON.parse(localStorage.getItem('Users'));
+    
+    if (storageUsers.length == 0) {
+        return;
+    };
+
     for (let i = 0; i < storageUsers.length; i++) {
         let item = storageUsers[i];
         userArray[i] = item;
@@ -87,6 +92,12 @@ authButton.addEventListener('click', () => {
     let userFlag = false;
 
     let storageUsers = JSON.parse(localStorage.getItem('Users'));
+
+    if (storageUsers.length == 0) {
+        alert('Пользователь не найден!');
+        return;
+    }
+
     storageUsers.forEach((item) => {
         
         if (item.login == userLog && item.password == userPassw) {
