@@ -29,7 +29,6 @@ const render = function () {
             item.active = false;
             storageUsers.splice(i, 1);
             localStorage.setItem('Users', JSON.stringify(storageUsers));
-            console.log('here');
             render();
         })
     }
@@ -50,7 +49,6 @@ regButton.addEventListener("click", () => {
 
     do {
         login = prompt('Введите Ваш логин:');
-        console.log(login.includes(' '));
         if (login.includes(' ')) {
             alert('В логине не должно быть проблеов');
         };
