@@ -93,7 +93,7 @@ authButton.addEventListener('click', () => {
 
     let storageUsers = JSON.parse(localStorage.getItem('Users'));
 
-    if (!storageUsers) {
+    if (!storageUsers || storageUsers.length == 0) {
         alert('Пользователь не найден!');
         return;
     }
