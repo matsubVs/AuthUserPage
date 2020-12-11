@@ -67,10 +67,11 @@ regButton.addEventListener("click", () => {
     } while (password.includes(' '));
 
     userRegDate = new Date();
-    let parseTime = userRegDate.toLocaleString().split(', ');
-    let date = parseTime[0].split('/');
+    let parseTime = userRegDate.toLocaleString('ru').split(', ');
+    let date = parseTime[0].split('.');
     let time = parseTime[1];
-    let fullDate = (date[1] + ' ' + yearMonth[userRegDate.getMonth()] + ' ' + date[2] + 'г., ' + time).slice(0, -2);
+    let fullDate = (date[1] + ' ' + yearMonth[userRegDate.getMonth()] + ' ' + date[2] + 'г., ' + time);
+
 
     User = {
         name: userName[0],
@@ -81,6 +82,7 @@ regButton.addEventListener("click", () => {
         active: true
     }
     userArray.push(User);
+    console.log('User: ', User);
     localStorage.setItem('Users', JSON.stringify(userArray));
 
     render();
